@@ -1,0 +1,280 @@
+body {
+    background-color: #19171c;
+    /* Set background color */
+    color: lightgrey;
+    /* Set overall color of the text */
+}
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    /* Because theres always this spacing between the edges of the page */
+    padding: 0;
+}
+
+.webpagecontent {
+    padding-top: 30px;
+}
+
+.atuserprof {
+    display: inline-block;
+    background-color: #f6a;
+    vertical-align: middle;
+    color: white;
+    content: "\f007";
+    padding: 11px 14px;
+    border: none;
+    cursor: pointer;
+    opacity: 0.7;
+    position: fixed;
+    bottom: 15px;
+    left: 15px;
+    border-radius: 100%;
+    transition: opacity 0.2s;
+}
+
+.atuserprof .atuserproftext {
+    visibility: hidden;
+    width: 120px;
+    font-size: 13px;
+    font-family: 'Montserrat', sans-serif;
+    background-color: black;
+    color: #fff;
+    text-align: center;
+    border-radius: 6px;
+    padding: 5px 0 5px;
+    position: absolute;
+    z-index: 1;
+    top: -20px;
+    left: 110%;
+    opacity: 0%;
+    transition: opacity, visibility 0.2s;
+}
+
+.atuserprof .atuserproftext::after {
+    visibility: hidden;
+    content: "";
+    position: absolute;
+    top: 50%;
+    right: 100%;
+    margin-top: -5px;
+    border-width: 5px;
+    border-style: solid;
+    border-color: transparent black transparent transparent;
+    opacity: 100%;
+    transition: opacity, visibility 0.2s;
+}
+
+.atuserprof:hover .atuserproftext {
+    visibility: visible;
+    opacity: 100%;
+    transition: opacity, visibility 0.2s;
+}
+
+.atuserprof:hover {
+    content: '<i class="fas fa-user"></i>';
+    opacity: 1;
+}
+
+
+/* tooltip */
+
+.toptooltip {
+    position: relative;
+    display: inline-block;
+    border-bottom: 1px dotted black;
+}
+
+.toptooltip .toptooltiptext {
+    visibility: hidden;
+    width: 120px;
+    font-size: 13px;
+    font-family: 'Montserrat', sans-serif;
+    background-color: black;
+    color: #fff;
+    text-align: center;
+    border-radius: 6px;
+    padding: 5px 0;
+    position: absolute;
+    z-index: 1;
+    bottom: 100%;
+    left: 50%;
+    margin-left: -60px;
+}
+
+.toptooltip:hover .toptooltiptext {
+    visibility: visible;
+}
+
+.headerbox {
+    /* The bar at the top that says atturbs osu skins */
+    background-color: #453c52;
+    /* give the box the purple color */
+    width: 100%;
+    /* make it expand across the entire screen */
+    height: 30px;
+    /* make the header small */
+    position: fixed;
+    /* make sure its at the top of the screen always even when scrolling down */
+    z-index: 100000;
+    /* Make this object have more priority over others. ex: prevent another element from going over this element */
+}
+
+.headertext {
+    font-family: 'odin_roundedlight', sans-serif;
+    /* Set the font */
+    text-align: center;
+    /* Align the text to the center */
+    margin: auto;
+    height: 30px;
+    vertical-align: middle;
+    overflow: hidden;
+    /* this font has a large spacing below the characters, so it would prevent the user from clicking Season 1 Skins, thats why we put this here, so it doesnt go outside of the header box. */
+    /* Basically for all of these, it prevents the user from highlighting the text, supporting for every browser. */
+    -webkit-touch-callout: none;
+    -webkit-user-select: none;
+    -khtml-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+}
+
+
+/* Skin boxes */
+
+.osuskinitem {
+    background-color: #1e1b23;
+    margin: 5px;
+    height: 120px;
+    border-radius: 4px;
+}
+
+.skinbutton {
+    bottom: 0px;
+    background-color: #2b2733;
+    position: relative;
+    right: 0px;
+    color: #DEDEDE !important;
+    padding: 6px 8px;
+    background: #262626;
+    border-radius: 4px;
+    margin: 5px 2px;
+    display: inline-block;
+    float: right;
+    top: 47px;
+}
+
+.skinbutton:hover {
+    background-color: #464646;
+    cursor: pointer;
+}
+
+.skindisabledbutton {
+    bottom: 0px;
+    background-color: #2b2733;
+    position: relative;
+    right: 0px;
+    color: #DEDEDE !important;
+    padding: 6px 8px;
+    background: #262626;
+    border-radius: 4px;
+    margin: 5px 2px;
+    display: inline-block;
+    float: right;
+    top: 47px;
+}
+
+.skindisabledbutton:hover {
+    cursor: not-allowed;
+}
+
+.skindescription {
+    padding-left: 8px;
+    font-family: 'Exo 2', sans-serif;
+}
+
+
+/* Season Dropdowns */
+
+.collapsible {
+    background-color: #777;
+    color: white;
+    cursor: pointer;
+    padding: 18px;
+    width: 100%;
+    border: none;
+    text-align: left;
+    outline: none;
+    font-size: 16px;
+    font-family: 'Montserrat', sans-serif;
+    background: linear-gradient(45deg, #7a60a0, #9161d8);
+}
+
+.active,
+.collapsible:hover {
+    background-color: #555;
+}
+
+.collapsible:after {
+    content: '\002B';
+    color: white;
+    font-weight: bold;
+    float: right;
+    margin-left: 5px;
+}
+
+.active:after {
+    content: "\2212";
+}
+
+.season {
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.6s cubic-bezier(0.4, 0, 0.32, 1)
+}
+
+
+/* Skin Boxes content */
+
+.skinitemtitle {
+    font-family: 'Montserrat', sans-serif;
+    padding-left: 8px;
+    padding-top: 7px;
+}
+
+
+/* Scroll Bar */
+
+
+/* width */
+
+::-webkit-scrollbar {
+    width: 4px;
+    padding-top: 30px;
+}
+
+
+/* Track */
+
+::-webkit-scrollbar-track {
+    border-radius: 10px;
+    padding-right: 2px;
+    background-color: #363636;
+    padding-top: 30px;
+}
+
+
+/* Handle */
+
+::-webkit-scrollbar-thumb {
+    background: #646464;
+    border-radius: 10px;
+    padding-top: 30px;
+}
+
+
+/* Handle on hover */
+
+::-webkit-scrollbar-thumb:hover {
+    background: #584c67;
+}
